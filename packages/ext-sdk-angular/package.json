@@ -1,0 +1,31 @@
+{
+  "name": "@heimvio/ext-sdk-angular",
+  "version": "0.1.0-dev.1",
+  "description": "Angular building block for heimvio extensions: session of heimvio.de, PostgREST and sidecar client with the user's JWT, extension shell with installation gate.",
+  "keywords": ["heimvio", "extension", "angular", "postgrest", "zitadel"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heimvio/extensions-sdk.git",
+    "directory": "packages/ext-sdk-angular"
+  },
+  "homepage": "https://github.com/heimvio/extensions-sdk#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json -c tsconfig.lib.json",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@angular/common": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@heimvio/zitadel-pgrst-angular": "^0.2.0-dev.1",
+    "angular-oauth2-oidc": "^20.0.0",
+    "rxjs": "~7.8.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

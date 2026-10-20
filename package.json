@@ -1,0 +1,39 @@
+{
+  "name": "heimvio-extensions-sdk",
+  "version": "0.0.0",
+  "private": true,
+  "description": "SDKs, example and documentation for heimvio extensions (apps under heimvio.de/apps/<slug>/).",
+  "license": "MIT",
+  "repository": "github:heimvio/extensions-sdk",
+  "workspaces": [
+    "packages/ext-sdk-angular",
+    "packages/ext-sdk-node",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^21.1.0",
+    "@angular/compiler-cli": "^21.1.0",
+    "@heimvio/zitadel-pgrst-angular": "file:../zitadel-pgrst-angular/dist/zitadel-pgrst-angular",
+    "@types/node": "^22.0.0",
+    "ng-packagr": "^21.1.0",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "@angular/common": "^21.1.0",
+    "@angular/core": "^21.1.0",
+    "@angular/forms": "^21.1.0",
+    "@angular/router": "^21.1.0",
+    "angular-oauth2-oidc": "^20.0.2",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  }
+}

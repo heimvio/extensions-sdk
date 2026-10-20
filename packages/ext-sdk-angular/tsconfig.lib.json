@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/ext-sdk-angular",
+    "declarationMap": true,
+    "inlineSources": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "preserveSymlinks": true,
+    "types": []
+  },
+  "angularCompilerOptions": {
+    "compilationMode": "partial",
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
+}

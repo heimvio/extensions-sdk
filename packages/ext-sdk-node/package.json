@@ -1,0 +1,39 @@
+{
+  "name": "@heimvio/ext-sdk-node",
+  "version": "0.1.0-dev.1",
+  "description": "Node building block for heimvio extensions: Hono app with JWT verification, installation gate and a heimvio client acting as the signed-in user.",
+  "keywords": ["heimvio", "extension", "hono", "postgrest", "jwt"],
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heimvio/extensions-sdk.git",
+    "directory": "packages/ext-sdk-node"
+  },
+  "homepage": "https://github.com/heimvio/extensions-sdk#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "hono": "^4.6.14",
+    "jose": "^6.0.0"
+  }
+}
