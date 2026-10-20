@@ -21,7 +21,7 @@
   "devDependencies": {
     "@angular/compiler": "^21.1.0",
     "@angular/compiler-cli": "^21.1.0",
-    "@heimvio/zitadel-pgrst-angular": "file:../zitadel-pgrst-angular/dist/zitadel-pgrst-angular",
+    "@heimvio/zitadel-pgrst-angular": "^0.2.0-dev.1",
     "@types/node": "^22.0.0",
     "ng-packagr": "^21.1.0",
     "typescript": "~5.9.2",
