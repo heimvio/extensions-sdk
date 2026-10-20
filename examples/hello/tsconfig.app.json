@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "outDir": "out-tsc/web", "noEmit": false, "declaration": false },
+  "files": ["web/src/main.ts"],
+  "include": ["web/src/**/*.ts"],
+  "exclude": ["web/src/**/*.spec.ts"],
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

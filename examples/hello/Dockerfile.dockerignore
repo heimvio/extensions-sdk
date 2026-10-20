@@ -1,0 +1,14 @@
+# Used by BuildKit for examples/hello/Dockerfile (context: repository root).
+.git
+.github
+**/node_modules
+**/dist
+**/.angular
+**/out-tsc
+**/coverage
+**/*.tgz
+**/.env
+**/.env.*
+**/npm-debug.log*
+.vscode
+.idea

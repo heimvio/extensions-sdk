@@ -8,7 +8,7 @@ and talk to heimvio through its public REST API with that user's rights.
 |---|---|
 | [`@heimvio/ext-sdk-angular`](packages/ext-sdk-angular) | `provideHeimvioExtension({ slug })` — heimvio's session, a client for PostgREST and the sidecar with the user's token, `<hv-ext-shell>` with organisation, user, remaining time and the installation gate. |
 | [`@heimvio/ext-sdk-node`](packages/ext-sdk-node) | `createExtensionApp()` — a [Hono](https://hono.dev) backend that verifies the user's token, applies the installation gate and calls heimvio as the user (`asUser(jwt)`); `serveExtension()` serves the frontend on port 8080. |
-| `examples/hello` | A complete extension: "Hello <user> (<organisation>)", built as one image (in progress). |
+| `examples/hello` | A complete extension: "Hello <user> (<organisation>)", built as one image (`ghcr.io/heimvio/ext-hello`). |
 
 **Start with [docs/EXTENSIONS.md](docs/EXTENSIONS.md)** — the contract
 (container, environment, sign-in, APIs) and an honest description of the

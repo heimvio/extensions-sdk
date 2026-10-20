@@ -324,7 +324,7 @@ requires a token even for public packages:
 ```
 
 In a Docker build pass the token as a BuildKit secret
-(`RUN --mount=type=secret,id=npmrc,target=/root/.npmrc npm ci`), never as
+(`docker build --secret id=npm_token,env=GITHUBPACKAGESTOKEN`; inside the `RUN`, write `//npm.pkg.github.com/:_authToken=$NPM_TOKEN` to `~/.npmrc` and delete it in the same step — see `examples/hello/Dockerfile`), never as
 `ARG` or `ENV`.
 
 Running locally: start the extension's backend with

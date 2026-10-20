@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "types": [],
+    "paths": {
+      "@heimvio/ext-sdk-angular": ["../../packages/ext-sdk-angular/dist"]
+    }
+  },
+  "files": []
+}

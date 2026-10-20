@@ -1,0 +1,53 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          registry-url: https://npm.pkg.github.com
+          scope: '@heimvio'
+
+      - run: npm ci --no-audit --no-fund
+        env:
+          # read:packages for @heimvio/* (GitHub Packages needs a token even for public packages).
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUBPACKAGESTOKEN || secrets.GITHUB_TOKEN }}
+
+      - run: npm run build
+      - run: npm run typecheck
+      - run: npm test
+
+  # Builds the example image without pushing, so a broken Dockerfile shows up in the pull request.
+  hello-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: examples/hello/Dockerfile
+          push: false
+          load: true
+          tags: ext-hello:ci
+          secrets: |
+            npm_token=${{ secrets.GITHUBPACKAGESTOKEN || secrets.GITHUB_TOKEN }}
+      - name: Health check
+        run: |
+          docker run -d --name hello -p 8080:8080 --read-only --cap-drop ALL ext-hello:ci
+          for i in $(seq 1 30); do curl -sf localhost:8080/healthz && exit 0; sleep 1; done
+          docker logs hello; exit 1
